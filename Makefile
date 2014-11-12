@@ -13,7 +13,7 @@ build: clean
 	cp index.html build/404.html
 	# cp config/CNAME build/CNAME
 	cp -R assets build/
-	# cp -R public build/
+	cp -R static build/
 
 # Intialize git and push the content to master.
 # Note: It is supposed to be executed in build directory
