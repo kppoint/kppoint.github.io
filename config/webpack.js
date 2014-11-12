@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 // Base config
 //
-var webpackConfig = {
+var webpackCfg = {
   entry: {
     'main': './src/js/main.js',
   },
@@ -40,16 +40,16 @@ WatchExternalFilesPlugin.prototype.apply = function(compiler) {
 // Configuration based on environments
 //
 if(process.env.NODE_ENV === 'production'){
-  webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
+  webpackCfg.plugins.push(new webpack.optimize.UglifyJsPlugin({
     sourceMap: false
   }));
-  webpackConfig.output.path = './assets'; // Bug?
+  webpackCfg.output.path = './assets'; // Bug?
 
 }else{
-  webpackConfig.plugins.push(new WatchExternalFilesPlugin());
-  webpackConfig.debug = true;
-  webpackConfig.devtool = '#source-map'
+  webpackCfg.plugins.push(new WatchExternalFilesPlugin());
+  webpackCfg.debug = true;
+  webpackCfg.devtool = '#source-map'
 }
 
 
-module.exports = webpackConfig;
+module.exports = webpackCfg;
