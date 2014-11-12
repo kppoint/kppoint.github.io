@@ -13,6 +13,7 @@ Repository Branches
 Directory Structure
 -------------------
 * `src/` : Contains all the source files.
+* `static/` : Contains all non-compiled assets, such as images, icons, etc.
 * `config/` : Configurations.
 * `vendor/` : Third-party libraries, bower components, etc.
 
@@ -33,6 +34,7 @@ $ gulp
 
 This opens up a http server, which listens [localhost:8080](http://localhost:8080).
 When source files (specified or requred in `config/webpack.js`) are changed, the browser window will reload by itself.
+Compilation status (of files managed by webpack) will be shown in the browser console.
 
 Deployment
 ----------
