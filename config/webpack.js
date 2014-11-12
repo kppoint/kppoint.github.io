@@ -8,7 +8,7 @@ var webpackCfg = {
   },
   output: {
     path: __dirname + '/assets',
-    filename: '[name].js'
+    filename: 'main.js'
   },
   module: {
     loaders: [
@@ -44,12 +44,11 @@ if(process.env.NODE_ENV === 'production'){
     sourceMap: false
   }));
   webpackCfg.output.path = './assets'; // Bug?
-
+  webpackCfg.output.filename = '[hash].js' // hash filename, cache busting
 }else{
   webpackCfg.plugins.push(new WatchExternalFilesPlugin());
   webpackCfg.debug = true;
   webpackCfg.devtool = '#source-map'
 }
-
 
 module.exports = webpackCfg;
