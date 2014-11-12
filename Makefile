@@ -1,19 +1,19 @@
-SRC=src
-GIT=git@github.com:MrOrz/hacktabl.git
-DEPLOY_BRANCH=gh-pages
+GIT=git@github.com:kppoint/kppoint.github.io.git
+DEPLOY_BRANCH=master
 
 .PHONY: build push clean deploy
 
 # Build production html using gulp and put the site in /build directory
 #
 build: clean
-	NODE_ENV=production gulp html
+	NODE_ENV=production gulp build
 	mkdir build
 
 	cp index.html build/index.html
 	cp index.html build/404.html
-	cp config/CNAME build/CNAME
-	cp -R public  build/
+	# cp config/CNAME build/CNAME
+	cp -R assets build/
+	# cp -R public build/
 
 # Intialize git and push the content to master.
 # Note: It is supposed to be executed in build directory
