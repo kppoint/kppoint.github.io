@@ -1,30 +1,12 @@
 var gulp = require('gulp'),
     webpack = require('webpack'),
+    webpackCfg = require('./config/webpack'),
     gutil = require('gulp-util'),
     WebpackDevServer = require('webpack-dev-server');
 
 // Webpack compiler & its config.
 //
-var compiler = webpack({
-  entry: {
-    'main': './src/js/main.js',
-  },
-  output: {
-    path: __dirname + '/assets',
-    filename: '[name].js'
-  },
-  module: {
-    loaders: [
-      {
-        // https://www.npmjs.org/package/sass-loader
-        //
-        test: /\.scss$/,
-        loader: "style!css!sass?outputStyle=expanded"
-      }
-    ]
-  },
-  debug: !process.env.NODE_ENV === 'production'
-});
+var compiler = webpack(webpackCfg);
 
 // Runs webpack compiler and generates javascript files.
 //
