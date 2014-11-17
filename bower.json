@@ -7,5 +7,8 @@
   ],
   "license": "MIT",
   "private": true,
-  "ignore": [ ]
+  "ignore": [],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
 }

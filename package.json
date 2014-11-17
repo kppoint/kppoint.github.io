@@ -17,13 +17,12 @@
   },
   "homepage": "https://github.com/kppoint/kppoint.github.io",
   "devDependencies": {
-    "css-loader": "^0.9.0",
+    "expose-loader": "^0.6.0",
     "gulp": "^3.8.10",
+    "gulp-compass": "^2.0.1",
     "gulp-jade": "^0.9.0",
     "gulp-util": "^3.0.1",
     "jade": "^1.7.0",
-    "sass-loader": "^0.3.0",
-    "style-loader": "^0.8.2",
     "webpack": "^1.4.13",
     "webpack-dev-server": "^1.6.5"
   }

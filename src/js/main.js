@@ -1,4 +1,4 @@
-require('./require-test.js');
-require('../scss/main.scss');
+var $ = require('expose?jQuery!../../vendor/bower_components/jquery/dist/jquery');
+require('../../vendor/javascripts/bootstrap');
 
-console.log('Main JS file loaded');
+console.log('Main JS file loaded:', $);

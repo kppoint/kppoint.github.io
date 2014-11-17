@@ -31,3 +31,4 @@ index.html
 
 # temp files
 temp/*
+.sass-cache

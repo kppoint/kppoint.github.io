@@ -23,6 +23,7 @@ Environment Setup
 ```
 $ npm install -g gulp
 $ npm install
+$ bundle install
 ```
 
 Development

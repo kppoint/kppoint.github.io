@@ -3,6 +3,7 @@ var gulp = require('gulp'),
     webpackCfg = require('./config/webpack'),
     gutil = require('gulp-util'),
     jade = require('gulp-jade'),
+    compass = require('gulp-compass'),
     WebpackDevServer = require('webpack-dev-server');
 
 // Webpack compiler & its config.
@@ -53,25 +54,38 @@ gulp.task('jade', function(){
 
 // Jade compilation with webpack compilation stats
 //
-gulp.task('jadeProduction', ['webpackCompile'], function(){
+gulp.task('jadeProduction', ['webpackCompile', 'compass'], function(){
   return gulp.src('src/jade/index.jade')
     .pipe(jade({
       pretty: false,
       locals: webpackStats
     }))
     .pipe(gulp.dest('./'));
-})
+});
+
+// Compass compilation
+//
+gulp.task('compass', function(){
+  return gulp.src('src/scss/main.scss')
+    .pipe(compass({
+      config_file: 'config/compass.rb',
+      css: 'assets',
+      sass: 'src/scss'
+    }))
+    .pipe(gulp.dest('./assets'));
+});
 
 // Watch file change and invoke corresponding compilers.
 //
 // Note: This task has nothing to do with browser reload.
 //       Browser reload setup is in config/webpack.js.
 //
-gulp.task('watch', ['jade'], function(cb){
+gulp.task('watch', ['jade', 'compass'], function(cb){
   gulp.watch('./src/jade/*', ['jade']);
+  gulp.watch('./src/scss/*', ['compass']);
 });
 
 gulp.task('default', ['watch', 'devServer']);
 
 gulp.task('build', process.env.NODE_ENV==='production' ?
-  ['jadeProduction'] : ['webpackCompile', 'jade']);
+  ['jadeProduction'] : ['webpackCompile', 'jade', 'compass']);

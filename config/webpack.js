@@ -10,17 +10,8 @@ var webpackCfg = {
     path: __dirname + '/assets',
     filename: 'main.js'
   },
-  module: {
-    loaders: [
-      {
-        // https://www.npmjs.org/package/sass-loader
-        //
-        test: /\.scss$/,
-        loader: "style!css!sass?outputStyle=expanded"
-      }
-    ],
-  },
-  plugins: []
+  plugins: [
+  ]
 };
 
 // Extra plugin definitions
@@ -31,7 +22,7 @@ var webpackCfg = {
 function WatchExternalFilesPlugin() {}
 WatchExternalFilesPlugin.prototype.apply = function(compiler) {
   compiler.plugin("after-compile", function(compilation, callback) {
-    compilation.fileDependencies.push("index.html");
+    compilation.fileDependencies.push("index.html", "assets/main.css");
     callback();
   });
 };

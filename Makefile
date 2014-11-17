@@ -36,6 +36,7 @@ push: build
 
 
 clean:
+	rm -rf assets
 	rm -rf build
 
 deploy: clean build push
