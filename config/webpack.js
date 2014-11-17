@@ -14,19 +14,6 @@ var webpackCfg = {
   ]
 };
 
-// Extra plugin definitions
-
-// Watch files that is not required with webpack
-// https://github.com/webpack/webpack-dev-server/issues/34
-//
-function WatchExternalFilesPlugin() {}
-WatchExternalFilesPlugin.prototype.apply = function(compiler) {
-  compiler.plugin("after-compile", function(compilation, callback) {
-    compilation.fileDependencies.push("index.html", "assets/main.css");
-    callback();
-  });
-};
-
 
 // Configuration based on environments
 //
@@ -37,7 +24,6 @@ if(process.env.NODE_ENV === 'production'){
   webpackCfg.output.path = './assets'; // Bug?
   webpackCfg.output.filename = '[hash].js' // hash filename, cache busting
 }else{
-  webpackCfg.plugins.push(new WatchExternalFilesPlugin());
   webpackCfg.debug = true;
   webpackCfg.devtool = '#source-map'
 }

@@ -9,6 +9,10 @@ var gulp = require('gulp'),
 // Webpack compiler & its config.
 //
 var compiler = webpack(webpackCfg),
+    server = new WebpackDevServer(compiler, {
+      contentBase: './',
+      publicPath: '/assets/'
+    }),
     webpackStats;
 
 // Runs webpack compiler and generates javascript files.
@@ -30,10 +34,7 @@ gulp.task('webpackCompile', function(cb){
 // as needed.
 //
 gulp.task('devServer', function(cb){
-  new WebpackDevServer(compiler, {
-    contentBase: './',
-    publicPath: '/assets/'
-  }).listen(8080, "localhost", function(err){
+  server.listen(8080, "localhost", function(err){
     if(err) throw new gutil.PluginError("webpack-dev-server", err);
     gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
   });
@@ -49,7 +50,8 @@ gulp.task('jade', function(){
         hash: 'main'
       }
     }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./'))
+    .on('end', forceReload);
 });
 
 // Jade compilation with webpack compilation stats
@@ -72,7 +74,8 @@ gulp.task('compass', function(){
       css: 'assets',
       sass: 'src/scss'
     }))
-    .pipe(gulp.dest('./assets'));
+    .pipe(gulp.dest('./assets'))
+    .on('end', forceReload);
 });
 
 // Watch file change and invoke corresponding compilers.
@@ -87,5 +90,26 @@ gulp.task('watch', ['jade', 'compass'], function(cb){
 
 gulp.task('default', ['watch', 'devServer']);
 
-gulp.task('build', process.env.NODE_ENV==='production' ?
+gulp.task('build', isProduction() ?
   ['jadeProduction'] : ['webpackCompile', 'jade', 'compass']);
+
+/* Utility functions */
+
+function forceReload() {
+  if(isProduction()) {
+    return;
+  }
+
+  // Force browser reload by hacking webpack-dev-server
+  // (using non-public api)
+  if(server.io){
+    gutil.log('[forceReload] Reloading...')
+    server.io.sockets.emit('ok');
+  }else{
+    throw new gutil.PluginError("forceReload", "webpack-dev-server socket is not ready");
+  }
+}
+
+function isProduction() {
+  return process.env.NODE_ENV === 'production';
+}
