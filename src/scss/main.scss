@@ -1,7 +1,9 @@
 @import 'test-import';
+@import 'color';
 
 html, body {
   color: $color;
+  overflow-x: hidden; 
 }
 
 
@@ -13,4 +15,25 @@ body {
   width: 200px;
   height: 200px;
   background-image: url('/static/images/test.png');
+}
+
+
+/*
+ * result-fold
+ */
+
+.result-fold {
+  position: relative;
+  text-align: center;
+  height: 100vh;
+}
+.kp-logo {
+  display: block;
+  position: absolute;
+  height: 113px;
+  width: 616px;
+  margin-left: -308px;
+  left: 50%;
+  bottom: 50px;
+  background: url('/static/images/kp-logo.png') no-repeat; 
 }

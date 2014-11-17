@@ -28,3 +28,6 @@ node_modules
 # Compiled assets
 assets
 index.html
+
+# temp files
+temp/*
