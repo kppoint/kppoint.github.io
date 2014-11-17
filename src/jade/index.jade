@@ -13,9 +13,23 @@ html(lang="zh-tw")
         span 873
         | 人共襄盛舉
       div.kp-logo
-    div.test
+        img(src='/static/images/kp-logo.png')
 
     div.process-fold
+      div.steps
+        div.step
+          img(src='/static/images/stamp1.png')
+          p 1.捐發票集點
+          div.dots ⁝
+        div.step
+          img(src='/static/images/stamp2.png')
+          p 2.集點捐發票
+          div.dots ⁝
+        div.step
+          img(src='/static/images/stamp1.png')
+          p 3.集發票捐點
+      div.desc
+        p 這邊感覺上會有很多說明文字，這邊感覺上會有很多說明文字！這邊感覺上會有很多說明文字。這邊感覺上會有很多說明文字：）
 
     script(src="/assets/"+hash+".js")
     if process.env.NODE_ENV!=='production'

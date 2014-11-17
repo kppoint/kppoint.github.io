@@ -4,6 +4,7 @@
 
 @import 'test-import';
 @import 'color';
+@import 'var';
 
 html, body {
   color: $color;
@@ -30,14 +31,61 @@ body {
   position: relative;
   text-align: center;
   height: 100vh;
+  padding-top: $margin-lg * 2;
+  background: url('/static/images/RingRoad.jpg');
+  h1 {
+    font-family: $font-family-light;
+    margin: $margin-sm;
+    font-size: $font-size-sm * 1.5;
+    @extend %black-color;
+    span {
+      margin-right: $margin-sm;
+      font-size: $font-size-lg;
+    }
+  }
+  .kp-logo {
+    display: block;
+    position: absolute;
+    margin-left: -318px;
+    left: 50%;
+    bottom: $margin-lg * 8;
+  }
 }
-.kp-logo {
-  display: block;
-  position: absolute;
-  height: 113px;
-  width: 616px;
-  margin-left: -308px;
-  left: 50%;
-  bottom: 50px;
-  background: url('/static/images/kp-logo.png') no-repeat; 
+
+/*
+ * process-fold
+ */
+
+.process-fold {
+  min-height: 100vh;
+  background-color: $light-green;
+  text-align: center;
+  padding-top: $margin-lg * 2;
+  padding-bottom: $margin-lg * 2;
+  .step {
+    font-family: $font-family-normal;
+    margin-bottom: $margin-lg;
+    @extend %white-color;
+    img {
+      width: 128px;
+      height: 128px;
+      border-radis: 50%;
+      margin-bottom: $margin-lg;
+    }
+    p {
+      font-size: $font-size-xs;
+      margin-bottom: $margin-lg;
+    }
+    .dots {
+      margin: 0 auto;
+      font-size: $font-size-lg;
+      @extend %white-color;
+      margin-bottom: $margin-lg - 5px;
+    }
+  }
+  .desc {
+      padding: 0 $margin-lg * 2;
+      line-height: $line-height;
+      @extend %white-color;
+  }
 }

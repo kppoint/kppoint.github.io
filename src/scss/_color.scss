@@ -2,3 +2,13 @@ $main-green: #006a62;
 $light-green: #029f98;
 $main-white: #eee;
 $main-gray: #cacaca;
+
+%black-color {
+  color: #000;
+  color: rgba(0,0,0,0.74);
+}
+
+%white-color {
+  color: #fff;
+  color: rgba(255,255,255,0.74);
+}
