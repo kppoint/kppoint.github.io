@@ -120,17 +120,35 @@ function forceReload() {
 function populateLocals(file, cb){
   request(constants.API_ENDPOINT, function(err, resp, data){
     if(err){
-      throw new gutil.PluginError("jadeProduction:request", err);
+      throw new gutil.PluginError("populateLocals", err);
     }
-    data = JSON.parse(data);
 
-    if(resp.statusCode === 200){
+    var hasParseError = false;
+    try{
+      data = JSON.parse(data);
+    } catch(e) {
+      gutil.beep();
+      gutil.log('[populateLocals]', 'Parse error on data:', e);
+      gutil.log('[populateLocals]', 'Data:', data);
+      hasParseError = true;
+    }
+
+
+    if(!hasParseError && resp.statusCode === 200){
+      gutil.log('[populateLocals]', 'Fetched data:', data);
+
       cb(null, {
         totalPoints: data.total_points,
         totalUsers: data.total_users,
         hash: webpackStats.hash
       });
+
     } else {
+      gutil.log('[populateLocals]', 'Fallback to manual setup:', {
+        totalPoints: constants.TOTAL_POINTS,
+        totalUsers: constants.TOTAL_USERS
+      });
+
       cb(null, {
         totalPoints: constants.TOTAL_POINTS,
         totalUsers: constants.TOTAL_USERS,
