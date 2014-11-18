@@ -7,10 +7,14 @@ html(lang="zh-tw")
   body
     div.result-fold
       h1.total-points
-        span 3212
+        span.js-total-points
+        = totalPoints
+        | 
         | 點數已送出
       h1.total-users
-        span 873
+        span.js-total-users
+        = totalUsers
+        | 
         | 人共襄盛舉
       div.kp-logo
         img(src='/static/images/kp-logo.png')

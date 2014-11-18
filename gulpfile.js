@@ -2,14 +2,19 @@ var gulp = require('gulp'),
     webpack = require('webpack'),
     webpackCfg = require('./config/webpack'),
     gutil = require('gulp-util'),
+    gData = require('gulp-data'),
     jade = require('gulp-jade'),
     compass = require('gulp-compass'),
-    WebpackDevServer = require('webpack-dev-server');
+    WebpackDevServer = require('webpack-dev-server'),
+    constants = require('./config/constants'),
+    request = require('request');
 
 // Webpack compiler & its config.
 //
 var compiler = webpack(webpackCfg),
-    server = new WebpackDevServer(compiler, {
+    // Instantiate server only in development mode,
+    // otherwise gulp would not terminate itself after performing all tasks
+    server = isProduction() ? {} : new WebpackDevServer(compiler, {
       contentBase: './',
       publicPath: '/assets/'
     }),
@@ -47,7 +52,9 @@ gulp.task('jade', function(){
     .pipe(jade({
       pretty: true,
       locals: {
-        hash: 'main'
+        hash: 'main',
+        totalPoints: constants.TOTAL_POINTS,
+        totalUsers: constants.TOTAL_USERS
       }
     }))
     .pipe(gulp.dest('./'))
@@ -58,9 +65,9 @@ gulp.task('jade', function(){
 //
 gulp.task('jadeProduction', ['webpackCompile', 'compass'], function(){
   return gulp.src('src/jade/index.jade')
+    .pipe(gData(populateLocals))
     .pipe(jade({
-      pretty: false,
-      locals: webpackStats
+      pretty: false
     }))
     .pipe(gulp.dest('./'));
 });
@@ -75,7 +82,7 @@ gulp.task('compass', function(){
       sass: 'src/scss'
     }))
     .pipe(gulp.dest('./assets'))
-    .on('end', forceReload);
+    // .on('end', forceReload);
 });
 
 // Watch file change and invoke corresponding compilers.
@@ -108,6 +115,29 @@ function forceReload() {
   }else{
     throw new gutil.PluginError("forceReload", "webpack-dev-server socket is not ready");
   }
+}
+
+function populateLocals(file, cb){
+  request(constants.API_ENDPOINT, function(err, resp, data){
+    if(err){
+      throw new gutil.PluginError("jadeProduction:request", err);
+    }
+    data = JSON.parse(data);
+
+    if(resp.statusCode === 200){
+      cb(null, {
+        totalPoints: data.total_points,
+        totalUsers: data.total_users,
+        hash: webpackStats.hash
+      });
+    } else {
+      cb(null, {
+        totalPoints: constants.TOTAL_POINTS,
+        totalUsers: constants.TOTAL_USERS,
+        hash: webpackStats.hash
+      });
+    }
+  });
 }
 
 function isProduction() {
