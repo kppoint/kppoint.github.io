@@ -9,3 +9,10 @@ $font-family-light: 'HelveticaNeue-UltraLight', Arial, sans-serif;
 $font-family-normal: 'MicrosoftJhengHeiRegular', Arial, sans-serif;
 
 $line-height: 1.7em;
+
+%main-container {
+  max-width: 960px;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}

@@ -32,7 +32,9 @@ body {
   text-align: center;
   height: 100vh;
   padding-top: $margin-lg * 2;
-  background: url('/static/images/RingRoad.jpg');
+  background: url('/static/images/bg.jpg');
+  background-size: cover;
+  background-position: 50%;
   h1 {
     font-family: $font-family-light;
     margin: $margin-sm;
@@ -62,6 +64,9 @@ body {
   text-align: center;
   padding-top: $margin-lg * 2;
   padding-bottom: $margin-lg * 2;
+  .steps {
+    @extend %main-container;
+  }
   .step {
     font-family: $font-family-normal;
     margin-bottom: $margin-lg;
@@ -73,19 +78,23 @@ body {
       margin-bottom: $margin-lg;
     }
     p {
-      font-size: $font-size-xs;
+      font-size: $font-size-sm;
       margin-bottom: $margin-lg;
     }
     .dots {
       margin: 0 auto;
       font-size: $font-size-lg;
-      @extend %white-color;
       margin-bottom: $margin-lg - 5px;
+      @extend %white-color;
     }
   }
   .desc {
+      font-size: ( $font-size-sm + $font-size-xs ) / 2;
       padding: 0 $margin-lg * 2;
       line-height: $line-height;
+      text-align: justify; 
+      text-justify: ideographic;
+      @extend %main-container;
       @extend %white-color;
   }
 }
