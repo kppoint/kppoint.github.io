@@ -7,13 +7,20 @@ $font-size-normal: 18px;
 $font-family-light: 'HelveticaNeue-UltraLight', 'Helvetica Neue', Arial, '思源黑體', 'Source Han Sans TC', 'SourceHanSans', 'Noto Sans CJK TC-Thin', 'Kozuka Gothic Pr6N', 'Kozuka Gothic Pro', 'Kozuka Gothic Pr6N', sans-serif;
 $font-family-normal: 'MicrosoftJhengHeiRegular', Arial, sans-serif;
 
-$line-height: 1.7em;
+$line-height: 1.5;
 
 $large-screen: 'screen and (min-width: 768px)';
 
 %main-container {
   max-width: 960px;
+  min-height: 100vh;
   position: relative;
   margin: 0 auto;
   text-align: center;
+  padding: 50px;
+}
+
+%text-align {
+  text-align: justify; 
+  text-justify: ideographic;
 }

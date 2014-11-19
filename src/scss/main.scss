@@ -31,10 +31,12 @@ body {
   position: relative;
   text-align: center;
   height: 100vh;
-  padding-top: $margin-lg * 2;
   background: url('/static/images/bg.jpg');
   background-size: cover;
   background-position: 50%;
+  .main-container {
+    @extend %main-container;
+  }
   h1 {
     font-family: $font-family-light;
     font-weight: 100;
@@ -49,9 +51,17 @@ body {
   .kp-logo {
     display: block;
     position: absolute;
-    margin-left: -318px;
-    left: 50%;
     bottom: $margin-lg * 8;
+    padding: 0 50px;
+    margin-left: -50px;
+    @media #{$large-screen} {
+      padding: 0;
+      margin-left: image-width('kp-logo.png')/-2;
+      left: 50%;
+    }
+    img {
+      width: 100%;
+    }
   }
 }
 
@@ -63,9 +73,7 @@ body {
   min-height: 100vh;
   background-color: $light-green;
   text-align: center;
-  padding-top: $margin-lg * 2;
-  padding-bottom: $margin-lg * 2;
-  .steps {
+  .main-container {
     @extend %main-container;
   }
   .step {
@@ -91,15 +99,63 @@ body {
   }
   .desc {
       font-size: $font-size-normal;
-      padding: 0 $margin-lg * 2;
       line-height: $line-height;
       text-align: justify; 
       text-justify: ideographic;
-      @extend %main-container;
+      margin-bottom: $margin-lg;
+      @extend %text-align;
       @extend %white-color;
       // @media #{$large-screen} {
       //   color: red;
       // }
+  }
+  .donate {
+    @extend %white-color;
+  }
+}
+
+.slogan-fold {
+  .main-container {
+    @extend %main-container;
+    min-height: 50vh;
+    text-align: inherit;
+  }
+  .slogans {
+    font-size: 0;
+  }
+  .slogan {
+    color: $light-green;
+    margin-bottom: $margin-lg * 2;
+    &:last-child {
+      margin-bottom: 0; 
+    }
+    @media #{$large-screen} {
+      display: inline-block;
+      width: 50%;
+      margin-bottom: 0;
+      vertical-align: top;
+      &:first-child {
+        padding-right: $margin-sm;
+      }
+      &:last-child {
+        padding-left: $margin-sm;
+      }
+    }
+  }
+  p {
+    @extend %text-align;
+    font-size: $font-size-normal;
+    line-height: $line-height;
+  }
+  h3 {
+    position: relative;
+    text-align: center;
+    padding: 0.25em;
+    border-top: 1px solid $dark-orange;
+    border-bottom: 1px solid $dark-orange;
+    color: $dark-orange; // dark orange
+    background: #fff;
+
   }
 }
 
