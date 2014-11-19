@@ -14,6 +14,7 @@ build: clean
 	# cp config/CNAME build/CNAME
 	cp -R assets build/
 	cp -R static build/
+	cp -R vendor build/
 
 # Intialize git and push the content to master.
 # Note: It is supposed to be executed in build directory
