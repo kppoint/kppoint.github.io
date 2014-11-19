@@ -1,6 +1,7 @@
 @import "bootstrap-compass";
 @import "bootstrap-variables";
 @import "bootstrap";
+@import "compass/css3";
 
 @import 'test-import';
 @import 'color';
@@ -103,4 +104,46 @@ body {
   }
 }
 
+.about-fold {
+  padding: $margin-lg;
+  background: image-url('notebook.jpg') center center;
+  @include background-size(cover);
 
+  .people {
+    padding: $margin-lg;
+    background: rgba(#fff, .83);
+    text-align: center;
+  }
+
+  p, h2 {
+    font: 14px/1.5 $font-family-light;
+    font-weight: 100;
+    color: rgba(#000, .83);
+    margin: 0 0 14px*1.5;
+  }
+
+  .figures {
+    margin: 0 $margin-lg/-2; // Eat up excessive margin of figures
+    font-size: 0;
+  }
+
+  figure {
+    padding: $margin-lg/2;
+    width: 50%;
+    display: inline-block;
+
+    @media #{$large-screen} {
+      width: auto;
+    }
+  }
+
+  img {
+    width: 100%;
+    border-radius: 200px;
+    border: 1px solid #fff;
+
+    @media #{$large-screen} {
+      max-width: 100px;
+    }
+  }
+}
