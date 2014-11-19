@@ -7,43 +7,49 @@ html(lang="zh-tw")
     link(rel='stylesheet',href='/assets/main.css')
     link(rel='stylesheet',href='/static/css/font-awesome.css')
   body
-    div.result-fold
-      h1.total-points
-        span.js-total-points
-          = totalPoints
-        | 點數已送出
-      h1.total-users
-        span.js-total-users
-          = totalUsers
-        | 人共襄盛舉
-      div.kp-logo
-        img(src='/static/images/kp-logo.png')
+    section.result-fold
+      .main-container
+        h1.total-points
+          span.js-total-points
+            = totalPoints
+          | 點數已送出
+        h1.total-users
+          span.js-total-users
+            = totalUsers
+          | 人共襄盛舉
+        .kp-logo
+          img(src='/static/images/kp-logo.png')
 
-    div.process-fold
-      div.steps
-        div.step
-          i.fa.fa-users
-          p 1.號召行動青年
-          div.dots ⁝
-        div.step
-          i.fa.fa-slideshare
-          p 2.小組執行街頭任務
-          div.dots ⁝
-        div.step
-          i.fa.fa-dropbox
-          p 3.群眾將發票投入集氣行動箱
-          div.dots ⁝
-        div.step
-          i.fa.fa-thumbs-o-up
-          p 4.獲得柯P點數
-      div.desc
-        p 集滿固定點數之參加者可用點數兌換商品，預計將會是「我是台北，我支持柯P」、「我生活在台北，我支持柯P」等周邊供集點數量達標的參加者兌換。讓參加者可以貼在衣服或是包包上來呈現自己的支持意見。
-    
-    div.slogan-fold
-      div.slogans
-        div.slogan
-          h1 
-          p
+    section.process-fold
+      .main-container
+        .steps
+          .step
+            i.fa.fa-users
+            p 1.找到攤位
+            .dots ⁝
+          .step
+            i.fa.fa-dropbox
+            p 2.捐發票集點
+            .dots ⁝
+          .step
+            i.fa.fa-thumbs-o-up
+            p 3.兌換禮物
+        .desc
+          p 集滿固定點數之參加者可用點數兌換贈品，將設計「我在台北生活，我支持柯P」等周邊供兌換讓參加者可以貼在衣服或是包包上來呈現自己的支持意見。
+        small.donate -發票暫定捐贈羅慧夫基金會做顱顏種子醫師之培訓-
+
+    section.slogan-fold
+      .main-container
+        .slogans
+          .slogan
+            h2 青年們！
+            p 你每天想破頭，為未來鋪路，卻總看不到前進的方向？日日工作勤奮，努力這麼久，你是否總覺得沒有受到應有的尊重與回報？現狀的不公平，不必然需要延續下去。這個改變只需要你為自己堅定的發聲。11/18-11/28，站在街頭，為自己發聲，讓長輩們感受到你的堅毅，為你投下手中這一票。
+            h3 為自己行動，青年發聲
+          .slogan
+            h2 家長們！
+            p 看著眼前的孩子，你想過他在你這個年紀時，生活會如何嗎？我們都希望孩子比自己過得更好，但他們心裡正憂慮著這個問題。孩子們意識到這個重要的時刻，為自己站出來。
+            p 你，願意為孩子挺身而出嗎？
+            h3 票投柯P，撐孩子
 
     section.about-fold
       .people
