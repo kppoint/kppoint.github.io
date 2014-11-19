@@ -9,6 +9,8 @@ $font-family-normal: 'MicrosoftJhengHeiRegular', Arial, sans-serif;
 
 $line-height: 1.7em;
 
+$large-screen: 'screen and (min-width: 768px)';
+
 %main-container {
   max-width: 960px;
   position: relative;

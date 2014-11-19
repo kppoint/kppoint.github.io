@@ -97,7 +97,10 @@ body {
       text-justify: ideographic;
       @extend %main-container;
       @extend %white-color;
+      // @media #{$large-screen} {
+      //   color: red;
+      // }
   }
 }
 
-@import 'media-query';
+
