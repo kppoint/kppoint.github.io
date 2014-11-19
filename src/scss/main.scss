@@ -31,20 +31,20 @@ body {
 .result-fold {
   position: relative;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
+  height: 1px;
   background-image: url('/static/images/bg.jpg');
   background-size: cover;
   background-position: 50%;
   .background {
     height: 100%;
     width: 100%;
-    padding-top: 50px;
     background-color: rgba(255,255,255,0.5);
   }
   h1 {
     font-family: $font-family-light;
     font-weight: 100;
-    font-size: $font-size-normal * 1.5;
+    font-size: $font-size-normal * 2;
     line-height: 1.5;
     width: 100%;
     margin: 0;
@@ -54,10 +54,17 @@ body {
     }
     span {
       display: block;
-      margin-right: $margin-sm;
       @media #{$large-screen} {
         display: inline;
+        margin-right: $margin-sm;
         font-size: $font-size-lg * 1.5;
+      }
+    }
+    &:first-child {
+      padding-top: $margin-lg * 4;
+      margin-bottom: $margin-lg * 2;
+      @media #{$large-screen} {
+        margin-bottom: 0;
       }
     }
   }
@@ -136,6 +143,22 @@ body {
     @extend %main-container;
     min-height: 50vh;
     text-align: inherit;
+    -webkit-font-smoothing: antialiased;
+  }
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; 
+    height: 0; 
+    overflow: hidden;
+    margin-bottom: $margin-lg;
+    & iframe,& object, & embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
   .slogans {
     font-size: 0;
