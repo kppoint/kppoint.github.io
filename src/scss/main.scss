@@ -37,6 +37,7 @@ body {
   background-position: 50%;
   h1 {
     font-family: $font-family-light;
+    font-weight: 100;
     margin: $margin-sm;
     font-size: $font-size-normal * 1.5;
     @extend %black-color;
