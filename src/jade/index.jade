@@ -2,8 +2,10 @@ doctype html
 html(lang="zh-tw")
   head
     meta(charset='UTF-8')
+    meta(name='viewport',content='width=device-width, initial-scale=1')
     title KPPoint
     link(rel='stylesheet',href='/assets/main.css')
+    link(rel='stylesheet',href='/static/css/font-awesome.css')
   body
     div.result-fold
       h1.total-points
@@ -20,19 +22,19 @@ html(lang="zh-tw")
     div.process-fold
       div.steps
         div.step
-          img(src='/static/images/stamp1.png')
+          i.fa.fa-users
           p 1.號召行動青年
           div.dots ⁝
         div.step
-          img(src='/static/images/stamp2.png')
+          i.fa.fa-slideshare
           p 2.小組執行街頭任務
           div.dots ⁝
         div.step
-          img(src='/static/images/stamp1.png')
+          i.fa.fa-dropbox
           p 3.群眾將發票投入集氣行動箱
           div.dots ⁝
         div.step
-          img(src='/static/images/stamp1.png')
+          i.fa.fa-thumbs-o-up
           p 4.獲得柯P點數
       div.desc
         p 集滿固定點數之參加者可用點數兌換商品，預計將會是「我是台北，我支持柯P」、「我生活在台北，我支持柯P」等周邊供集點數量達標的參加者兌換。讓參加者可以貼在衣服或是包包上來呈現自己的支持意見。
