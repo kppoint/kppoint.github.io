@@ -28,3 +28,19 @@ $main-nav-width: 250px;
   text-align: justify; 
   text-justify: ideographic;
 }
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($name: fadeIn, $duration: 1s, $delay: 0s, $count: 1, $function: ease-in-out, $direction: noraml, $mode: both){
+  @include experimental(animation, $name $duration $delay $count $function $direction $mode);
+}

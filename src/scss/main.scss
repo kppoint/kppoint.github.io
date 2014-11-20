@@ -145,6 +145,28 @@ main {
   //     width: 100%;
   //   }
   // }
+
+  .indicator {
+    $size: 96px;
+    position: absolute;
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    font-size: 36px;
+    background: $light-green;
+    color: $main-white;
+    bottom: $size/-2;
+    left: 50%;
+    margin-left: $size/-2;
+    i {
+      @include animation(scroll-down-indicator, 0.7s, $count: infinite, $direction:alternate);
+    }
+  }
+}
+
+@include keyframes(scroll-down-indicator){
+  from { @include transform(translate(0, 0)); }
+  to { @include transform(translate(0, 10px)); }
 }
 
 .map-fold {
