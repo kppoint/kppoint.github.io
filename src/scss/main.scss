@@ -478,7 +478,13 @@ main {
   }
   .main-nav {
     @include transform(translate($main-nav-width, 0));
-  .map-fold iframe {
+  }
+
+  .map-fold iframe, .slogan-fold iframe {
+    // Devtool Timeline shows that the browser tends to move small bits inside iframes
+    // around even if the map is not on screen.
+    // Hiding map accelerates nav opening speed.
+    //
     display: none;
   }
 }
