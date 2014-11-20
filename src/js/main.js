@@ -41,16 +41,21 @@ $mapFold.find('.deactivate-map').click(function(){ $mapFold.removeClass(MAP_ACTI
 // Loads Youtube video
 //
 window.onYouTubeIframeAPIReady = function(){
-  var player = new window.YT.Player('player', {
-    width: '1280', height: '720',
-    videoId: 'W2b3L-AbVi8', events: {
-      onStateChange: function(evt){
-        // Send google analytics event when video is played.
-        if(evt.data === window.YT.PlayerState.PLAYING){
-          window.ga('send', 'event', 'video', 'play', 'KP advertisement');
+
+  // Wait until all assets loaded
+  $(window).load(function(){
+    console.log('onLoad called');
+    var player = new window.YT.Player('player', {
+      width: '1280', height: '720',
+      videoId: 'W2b3L-AbVi8', events: {
+        onStateChange: function(evt){
+          // Send google analytics event when video is played.
+          if(evt.data === window.YT.PlayerState.PLAYING){
+            window.ga('send', 'event', 'video', 'play', 'KP advertisement');
+          }
         }
       }
-    }
+    });
   });
 };
 
@@ -67,4 +72,35 @@ $body.on('activate.bs.scrollspy', function(evt){
 $body.on('click', '[ga-label]', function(){
   var label = $(this).attr('ga-label');
   window.ga('send', 'event', 'button', 'click', label);
-})
+});
+
+// Delay the loading of maps after body loads
+//
+$(window).load(function(){
+  console.log('loading maps')
+  $('.map-fold iframe').attr('src', 'https://mapsengine.google.com/map/u/0/embed?mid=zI3lo4kPc9e4.kuZC0pgWAtNs')
+});
+
+// Utility functions
+//
+
+function animateText($target, to) {
+  var value, isPending = false;
+
+  $({ value: +$target.text()}).animate({
+      value: to
+  }, {
+    easing: 'swing', duration: 1600,
+    progress: function(){
+      value = this.value;
+      if(!isPending){
+        requestAnimationFrame(function(){
+          $target.text(value.toFixed(0));
+          isPending = false;
+        });
+        isPending = true;
+      }
+    },
+    complete: function(){$target.text(to);}
+  });
+}
