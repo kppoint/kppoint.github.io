@@ -62,8 +62,12 @@ html(lang="zh-tw")
         iframe(src="https://mapsengine.google.com/map/u/0/embed?mid=zI3lo4kPc9e4.kuZC0pgWAtNs")
         div.cover
           div.toast.activate-map 點一下以啟用地圖
-
-        div.toast.deactivate-map 點一下以離開地圖
+        div.close.deactivate-map
+          i.fa.fa-times
+        div.toast.deactivate-map
+          | 點一下以離開地圖
+          | 
+          i.fa.fa-sign-out
 
       section.slogan-fold#motivation
         .main-container
