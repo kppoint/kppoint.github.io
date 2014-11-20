@@ -194,8 +194,28 @@ main {
       //   color: red;
       // }
   }
+  .sticker {
+    margin-bottom: $margin-lg;
+
+    @media #{$large-screen} {
+      margin-bottom: $margin-lg + 5px;
+    }
+    img {
+      width: 100%;
+      @include border-radius(10px);
+      box-shadow: 0px 5px 10px rgba(255,255,255,0.74), 0px -5px 10px rgba(255,255,255,0.74), 5px 0px 10px rgba(255,255,255,0.74), -5px 0px 10px rgba(255,255,255,0.74);
+      @media #{$large-screen} {
+        width: auto;
+      }
+    }
+  }
   .donate {
     @extend %white-color;
+    a {
+      padding: 0 5px;
+      -webkit-font-smoothing: antialiased;
+      @include link-colors(rgba($main-white, .83), $main-white);
+    }
   }
 }
 
