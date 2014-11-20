@@ -42,7 +42,7 @@ body {
     background-color: rgba(255,255,255,0.5);
   }
   h1 {
-    font-family: $font-family-light;
+    font-family: $font-family-light-title;
     font-weight: 100;
     font-size: $font-size-normal * 2;
     line-height: 1.5;
@@ -213,13 +213,17 @@ body {
     padding: $margin-lg;
     background: rgba(#fff, .83);
     text-align: center;
+    margin: 0 auto;
+    max-width: 960px;
   }
 
   p, h2 {
-    font: 14px/1.5 $font-family-light;
-    font-weight: 100;
+    font: 15px/#{$line-height} $font-family-light;
     color: rgba(#000, .83);
-    margin: 0 0 14px*1.5;
+    margin: 0;
+  }
+  p {
+    margin-bottom: $font-size-normal*$line-height;
   }
 
   .figures {
