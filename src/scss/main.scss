@@ -114,10 +114,12 @@ main {
     span {
       // display: block;
       font-size: $font-size-normal * 2.5;
+      font-weight: bold;
       @media #{$large-screen} {
         // display: inline;
         margin-right: $margin-sm;
         font-size: $font-size-lg * 2;
+        font-weight: normal;
       }
     }
     // &:first-child {
@@ -399,5 +401,26 @@ main {
   }
   .main-nav {
     @include transform(translate($main-nav-width, 0));
+  }
+}
+
+.contact-us {
+  background-color: $main-green;
+  .main-container {
+    margin: 0 auto;
+    padding: $margin-lg $margin-lg * 2;
+    max-width: 960px;
+  }
+  i {
+    margin-right: 0.5em;
+  }
+  span {
+    margin-right: 1em;
+  }
+  a {
+    font-family: $font-family-light;
+    -webkit-font-smoothing: antialiased;
+    @extend %white-color;
+    @include link-colors(rgba($main-white, .83), $main-white);
   }
 }
