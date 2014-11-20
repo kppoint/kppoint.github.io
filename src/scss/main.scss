@@ -470,14 +470,14 @@ main {
 .is-nav-opened {
   main {
     // unequal offset 
-    @include transform(translate($main-nav-width * 0.75, 0));
+    @include transform(translate3d($main-nav-width * 0.75, 0, 0));
     &:after {
       opacity: 1;
       z-index: 1;
     }
   }
   .main-nav {
-    @include transform(translate($main-nav-width, 0));
+    @include transform(translate3d($main-nav-width, 0, 0));
   }
 
   .map-fold iframe, .slogan-fold iframe {
