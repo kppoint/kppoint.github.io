@@ -315,7 +315,7 @@ main {
   position: fixed;
   right: 100%;
   top: 0;
-  width: 300px;
+  width: $main-nav-width;
   height: 100%;
   z-index: $zindex-navbar-fixed;
   // will-change: transform;
@@ -336,14 +336,15 @@ main {
 
 .is-nav-opened {
   main {
-    @include transform(translate(200px, 0));
+    // unequal offset 
+    @include transform(translate($main-nav-width * 0.75, 0));
     &:after {
       opacity: 1;
       z-index: 1;
     }
   }
   .main-nav {
-    @include transform(translate(300px, 0));
+    @include transform(translate($main-nav-width, 0));
   }
 }
 
