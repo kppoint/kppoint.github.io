@@ -57,7 +57,8 @@ main {
     content: '';
     opacity: 0;
     background: rgba(#000, .65);
-    @include stretch();
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
     @include transition(opacity $animation-duration);
   }
 }
@@ -477,6 +478,8 @@ main {
   }
   .main-nav {
     @include transform(translate($main-nav-width, 0));
+  .map-fold iframe {
+    display: none;
   }
 }
 
