@@ -346,3 +346,24 @@ main {
     @include transform(translate(300px, 0));
   }
 }
+
+.contact-us {
+  background-color: $main-green;
+  .main-container {
+    margin: 0 auto;
+    padding: $margin-lg $margin-lg * 2;
+    max-width: 960px;
+  }
+  i {
+    margin-right: 0.5em;
+  }
+  span {
+    margin-right: 1em;
+  }
+  a {
+    font-family: $font-family-light;
+    -webkit-font-smoothing: antialiased;
+    @extend %white-color;
+    @include link-colors(rgba($main-white, .83), $main-white);
+  }
+}
