@@ -10,12 +10,14 @@ $.getJSON(constants.API_ENDPOINT, {}, function(data){
 
 
 var $body = $('body'),
+    $deactivatingElements = $('main, .main-nav a'),
     NAV_OPEN_CLS = 'is-nav-opened';
 $('#toggle').click(function(){
   $body.toggleClass(NAV_OPEN_CLS);
-  $('main').one('click', function(){
-    $body.removeClass(NAV_OPEN_CLS)
-  })
+
+  $deactivatingElements.one('click', function(){
+    $body.removeClass(NAV_OPEN_CLS);
+  });
 });
 
 // Loads Youtube video

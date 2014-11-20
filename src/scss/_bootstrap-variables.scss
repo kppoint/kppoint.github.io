@@ -31,7 +31,7 @@ $brand-info:            $light-green;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               $main-white;
+// $body-bg:               #fff;
 //** Global text color on `<body>`.
 // $text-color:            $gray-dark
 
@@ -423,9 +423,9 @@ $nav-link-hover-bg:                         $main-green;
 // $nav-tabs-justified-active-link-border-color:     $body-bg
 
 //== Pills
-// $nav-pills-border-radius:                   $border-radius-base
-// $nav-pills-active-link-hover-bg:            $component-active-bg
-// $nav-pills-active-link-hover-color:         $component-active-color
+$nav-pills-border-radius:                   0;
+// $nav-pills-active-link-hover-bg:            $component-active-bg;
+// $nav-pills-active-link-hover-color:         $component-active-color;
 
 //== Pagination
 //

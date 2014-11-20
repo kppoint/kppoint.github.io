@@ -14,6 +14,7 @@
 
 // Core CSS
 @import "bootstrap/scaffolding";
+@import "bootstrap/type";
 
 // Components
 @import "bootstrap/component-animations";
@@ -38,7 +39,7 @@ html, body {
 #toggle {
   position: fixed;
   left: 0.5em; top: 0;
-  color: rgba(#000, .56);
+  color: $main-green;
   font-size: 28px;
   z-index: $zindex-navbar;
 }
@@ -49,10 +50,11 @@ main {
 
   // Darken cover when navbar is opened
   &:after {
+    z-index: -1;
     will-change: opacity;
     content: '';
     opacity: 0;
-    background: rgba(#000, .35);
+    background: rgba(#000, .65);
     @include stretch();
     @include transition(opacity $animation-duration);
   }
@@ -316,9 +318,15 @@ main {
   width: 300px;
   height: 100%;
   z-index: $zindex-navbar-fixed;
-  will-change: transform;
-  @include transition(transform $animation-duration ease);
+  // will-change: transform;
+  @include transition(transform ($animation-duration) ease);
   background: $light-green;
+
+  h1 {
+    color: $main-white;
+    font-size: $font-size-normal;
+    margin: 0.5em 0;
+  }
 
   a {
     @include link-colors(rgba($main-white, .83), $main-white);
@@ -331,6 +339,7 @@ main {
     @include transform(translate(200px, 0));
     &:after {
       opacity: 1;
+      z-index: 1;
     }
   }
   .main-nav {
