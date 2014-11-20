@@ -11,6 +11,15 @@ html(lang="zh-tw")
     meta(property='og:site_name' content='挺柯Ｐ，多一點')
     meta(property='og:description' content='即日起，在臺北街頭把發票投給柯Ｐ，就可以獲得 1 點，每 3 點免費換柯Ｐ貼紙喲！')
     meta(property='og:image' content='https://kppoint.github.io/static/images/og.jpg')
+
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-56923474-1', 'auto');
+      ga('send', 'pageview');
+
   body
     section.result-fold
       .background
