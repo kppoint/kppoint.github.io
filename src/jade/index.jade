@@ -58,7 +58,7 @@ html(lang="zh-tw")
     section.slogan-fold
       .main-container
         .video-container
-          iframe(width="1280",height="720",src="//www.youtube.com/embed/W2b3L-AbVi8" frameborder="0" allowfullscreen)
+          #player
         .slogans
           .slogan
             h2 青年們！
@@ -106,3 +106,5 @@ html(lang="zh-tw")
     script(src="/assets/"+hash+".js")
     if process.env.NODE_ENV!=='production'
       script(src="/webpack-dev-server.js")
+
+    script(src="https://www.youtube.com/iframe_api")
