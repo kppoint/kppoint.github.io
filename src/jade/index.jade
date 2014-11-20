@@ -14,16 +14,19 @@ html(lang="zh-tw")
   body
     section.result-fold
       .background
-        h1.total-points
+        h1.title
+          img(src='/static/images/title.png' alt='挺柯Ｐ，多一點｜發票投柯Ｐ，給你蓋一Ｐ KP.Taipei')
+        h2.total-points
+          | 已送出
           span.js-total-points
             = totalPoints
-          | 點數已送出
-        h1.total-users
+          | 點
+        h2.total-users
           span.js-total-users
             = totalUsers
           | 人共襄盛舉
-        .kp-logo
-          img(src='/static/images/kp-logo.png')
+        //- .kp-logo
+        //-   img(src='/static/images/kp-logo.png')
 
     section.process-fold
       .main-container

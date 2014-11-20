@@ -40,48 +40,71 @@ body {
     height: 100%;
     width: 100%;
     background-color: rgba(255,255,255,0.5);
+
+    // Just for vertical centering on mobile (100% support)
+    // It should look the same on desktop.
+    //
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(center);
   }
-  h1 {
+  .title{
+    text-align: center;
+    margin: 0;
+  }
+
+  .title > img{
+    width: 100%;
+
+    @media #{$large-screen}, screen and (orientation: landscape) {
+      // On horizontal screns, limit logo's height instead
+      width: auto;
+      max-height: 50vh;
+    }
+  }
+
+  h2 {
     font-family: $font-family-light-title;
     font-weight: 100;
-    font-size: $font-size-normal * 2;
+    font-size: $font-size-normal * 1.5;
     line-height: 1.5;
     width: 100%;
     margin: 0;
     @extend %black-color;
     @media #{$large-screen} {
-      font-size: $font-size-lg * 1.5;
+      font-size: $font-size-lg;
     }
     span {
-      display: block;
+      // display: block;
+      font-size: $font-size-normal;
       @media #{$large-screen} {
-        display: inline;
+        // display: inline;
         margin-right: $margin-sm;
-        font-size: $font-size-lg * 1.5;
+        font-size: $font-size-lg * 2;
       }
     }
-    &:first-child {
-      padding-top: $margin-lg * 4;
-      margin-bottom: $margin-lg * 2;
-      @media #{$large-screen} {
-        margin-bottom: 0;
-      }
-    }
+    // &:first-child {
+    //   padding-top: $margin-lg * 4;
+    //   margin-bottom: $margin-lg * 2;
+    //   @media #{$large-screen} {
+    //     margin-bottom: 0;
+    //   }
+    // }
   }
-  .kp-logo {
-    display: block;
-    position: absolute;
-    bottom: $margin-lg * 8;
-    padding: 0 50px;
-    @media #{$large-screen} {
-      padding: 0;
-      margin-left: image-width('kp-logo.png')/-2;
-      left: 50%;
-    }
-    img {
-      width: 100%;
-    }
-  }
+  // .kp-logo {
+  //   display: block;
+  //   position: absolute;
+  //   bottom: $margin-lg * 8;
+  //   padding: 0 50px;
+  //   @media #{$large-screen} {
+  //     padding: 0;
+  //     margin-left: image-width('kp-logo.png')/-2;
+  //     left: 50%;
+  //   }
+  //   img {
+  //     width: 100%;
+  //   }
+  // }
 }
 
 /*
