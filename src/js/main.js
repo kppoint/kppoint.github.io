@@ -78,7 +78,9 @@ $body.on('click', '[ga-label]', function(){
 //
 $(window).load(function(){
   console.log('loading maps')
-  $('.map-fold iframe').attr('src', 'https://mapsengine.google.com/map/u/0/embed?mid=zI3lo4kPc9e4.kuZC0pgWAtNs')
+  $('.map-fold iframe').load(function(){
+    $('.map-fold .loading').fadeOut('slow');
+  }).attr('src', 'https://mapsengine.google.com/map/u/0/embed?mid=zI3lo4kPc9e4.kuZC0pgWAtNs');
 });
 
 // Utility functions
