@@ -113,10 +113,12 @@ main {
     span {
       // display: block;
       font-size: $font-size-normal * 2.5;
+      font-weight: bold;
       @media #{$large-screen} {
         // display: inline;
         margin-right: $margin-sm;
         font-size: $font-size-lg * 2;
+        font-weight: normal;
       }
     }
     // &:first-child {
