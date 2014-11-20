@@ -12,6 +12,8 @@ $line-height: 1.5;
 
 $large-screen: 'screen and (min-width: 768px)';
 
+$animation-duration: .6s;
+
 %main-container {
   max-width: 960px;
   min-height: 100vh;

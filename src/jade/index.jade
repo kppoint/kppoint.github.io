@@ -20,87 +20,97 @@ html(lang="zh-tw")
       ga('create', 'UA-56923474-1', 'auto');
       ga('send', 'pageview');
 
-  body
-    section.result-fold
-      .background
-        h1.title
-          img(src='/static/images/title.png' alt='挺柯Ｐ，多一點｜發票投柯Ｐ，給你蓋一Ｐ KP.Taipei')
-        h2.total-points
-          | 已送出
-          span.js-total-points
-            = totalPoints
-          | 點
-        h2.total-users
-          span.js-total-users
-            = totalUsers
-          | 人共襄盛舉
-        //- .kp-logo
-        //-   img(src='/static/images/kp-logo.png')
+  body(data-spy="scroll" target='.main-nav')
+    #toggle
+      i.fa.fa-bars
+    main
+      section.result-fold#top
+        .background
+          h1.title
+            img(src='/static/images/title.png' alt='挺柯Ｐ，多一點｜發票投柯Ｐ，給你蓋一Ｐ KP.Taipei')
+          h2.total-points
+            | 已送出
+            span.js-total-points
+              = totalPoints
+            | 點
+          h2.total-users
+            span.js-total-users
+              = totalUsers
+            | 人共襄盛舉
+          //- .kp-logo
+          //-   img(src='/static/images/kp-logo.png')
 
-    section.process-fold
-      .main-container
-        .steps
-          .step
-            i.fa.fa-users
-            p 1.找到攤位
-            .dots ⁝
-          .step
-            img(src='/static/images/box.png')
-            p 2.捐發票集點
-            .dots ⁝
-          .step
-            i.fa.fa-thumbs-o-up
-            p 3.兌換禮物
-        .desc
-          p 集滿固定點數之參加者可用點數兌換贈品，將設計「我在台北生活，我支持柯P」等周邊供兌換讓參加者可以貼在衣服或是包包上來呈現自己的支持意見。
-        small.donate -發票暫定捐贈羅慧夫基金會做顱顏種子醫師之培訓-
+      section.process-fold#process
+        .main-container
+          .steps
+            .step
+              i.fa.fa-users
+              p 1.找到攤位
+              .dots ⁝
+            .step
+              img(src='/static/images/box.png')
+              p 2.捐發票集點
+              .dots ⁝
+            .step
+              i.fa.fa-thumbs-o-up
+              p 3.兌換禮物
+          .desc
+            p 集滿固定點數之參加者可用點數兌換贈品，將設計「我在台北生活，我支持柯P」等周邊供兌換讓參加者可以貼在衣服或是包包上來呈現自己的支持意見。
+          small.donate -發票暫定捐贈羅慧夫基金會做顱顏種子醫師之培訓-
 
-    section.slogan-fold
-      .main-container
-        .video-container
-          #player
-        .slogans
-          .slogan
-            h2 青年們！
-            .content
-              p 你每天想破頭，為未來鋪路，卻總看不到前進的方向？日日工作勤奮，努力這麼久，你是否總覺得沒有受到應有的尊重與回報？現狀的不公平，不必然需要延續下去。這個改變只需要你為自己堅定的發聲。11/18-11/28，站在街頭，為自己發聲，讓長輩們感受到你的堅毅，為你投下手中這一票。
-            h3 為自己行動，青年發聲
-          .slogan
-            h2 家長們！
-            .content
-              p 看著眼前的孩子，你想過他在你這個年紀時，生活會如何嗎？我們都希望孩子比自己過得更好，但他們心裡正憂慮著這個問題。孩子們意識到這個重要的時刻，為自己站出來。
-              p 你，願意為孩子挺身而出嗎？
-            h3 票投柯P，撐孩子
+      section.slogan-fold#motivation
+        .main-container
+          .video-container
+            #player
+          .slogans
+            .slogan
+              h2 青年們！
+              .content
+                p 你每天想破頭，為未來鋪路，卻總看不到前進的方向？日日工作勤奮，努力這麼久，你是否總覺得沒有受到應有的尊重與回報？現狀的不公平，不必然需要延續下去。這個改變只需要你為自己堅定的發聲。11/18-11/28，站在街頭，為自己發聲，讓長輩們感受到你的堅毅，為你投下手中這一票。
+              h3 為自己行動，青年發聲
+            .slogan
+              h2 家長們！
+              .content
+                p 看著眼前的孩子，你想過他在你這個年紀時，生活會如何嗎？我們都希望孩子比自己過得更好，但他們心裡正憂慮著這個問題。孩子們意識到這個重要的時刻，為自己站出來。
+                p 你，願意為孩子挺身而出嗎？
+              h3 票投柯P，撐孩子
 
-    section.about-fold
-      .people
-        p 我們是一群生活在臺北的學生與社會新鮮人，因為意識到線上與線下之間，交換的訊息有著巨大的落差，因此挺身而進，為我們所支持的候選人另闢曝光渠道。
-        p 我們不是公關公司，不做市場問卷，不常在 ptt 發文，更不是柯文哲辦公室的人。（持次元刀亂揮）
-        .figures
-          figure
-            img(src='/static/images/avatar/hazelwei.jpg')
-            figcaption
-              h2 hazelwei
-          figure
-            img(src='/static/images/avatar/kpman.jpg')
-            figcaption
-              h2 kpman
-          figure
-            img(src='/static/images/avatar/moss.jpg')
-            figcaption
-              h2 moss
-          figure
-            img(src='/static/images/avatar/mrorz.jpg')
-            figcaption
-              h2 mrorz
-          figure
-            img(src='/static/images/avatar/ofa.jpg')
-            figcaption
-              h2 ofa
-          figure
-            img(src='/static/images/avatar/tiphanie.jpg')
-            figcaption
-              h2 tiphanie
+      section.about-fold#about
+        .people
+          p 我們是一群生活在臺北的學生與社會新鮮人，因為意識到線上與線下之間，交換的訊息有著巨大的落差，因此挺身而進，為我們所支持的候選人另闢曝光渠道。
+          p 我們不是公關公司，不做市場問卷，不常在 ptt 發文，更不是柯文哲辦公室的人。（持次元刀亂揮）
+          .figures
+            figure
+              img(src='/static/images/avatar/hazelwei.jpg')
+              figcaption
+                h2 hazelwei
+            figure
+              img(src='/static/images/avatar/kpman.jpg')
+              figcaption
+                h2 kpman
+            figure
+              img(src='/static/images/avatar/moss.jpg')
+              figcaption
+                h2 moss
+            figure
+              img(src='/static/images/avatar/mrorz.jpg')
+              figcaption
+                h2 mrorz
+            figure
+              img(src='/static/images/avatar/ofa.jpg')
+              figcaption
+                h2 ofa
+            figure
+              img(src='/static/images/avatar/tiphanie.jpg')
+              figcaption
+                h2 tiphanie
+
+    nav.main-nav
+      ul.nav.nav-stacked
+        li.active(role='presentation'): a(href="#top") 首頁
+        li(role='presentation'): a(href="#process") 活動辦法
+        li(role='presentation'): a(href="#motivation") 動機
+        li(role='presentation'): a(href="#about") 我們是誰
 
 
     script(src="/assets/"+hash+".js")

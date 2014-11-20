@@ -8,6 +8,16 @@ $.getJSON(constants.API_ENDPOINT, {}, function(data){
   $('.js-total-users').text(data.total_users);
 });
 
+
+var $body = $('body'),
+    NAV_OPEN_CLS = 'is-nav-opened';
+$('#toggle').click(function(){
+  $body.toggleClass(NAV_OPEN_CLS);
+  $('main').one('click', function(){
+    $body.removeClass(NAV_OPEN_CLS)
+  })
+});
+
 // Loads Youtube video
 window.onYouTubeIframeAPIReady = function(){
   var player = new window.YT.Player('player', {

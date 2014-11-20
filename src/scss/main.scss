@@ -1,28 +1,62 @@
+@import 'color';
+
 @import "bootstrap-compass";
 @import "bootstrap-variables";
-@import "bootstrap";
-@import "compass/css3";
 
-@import 'test-import';
-@import 'color';
+// https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/_bootstrap.scss
+// Core variables
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// REsets
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/navs";
+
+// Utilities
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+// Compass
+@import "compass/css3";
+@import "compass/layout";
+@import "compass/typography";
+
 @import 'var';
 
 html, body {
-  color: $color;
-  overflow-x: hidden; 
+  color: rgba(#000, .87);
+  overflow-x: hidden;
 }
 
-
-body {
-  color: #000;
+#toggle {
+  position: fixed;
+  left: 0.5em; top: 0;
+  color: rgba(#000, .56);
+  font-size: 28px;
+  z-index: $zindex-navbar;
 }
 
-.test {
-  width: 200px;
-  height: 200px;
-  background-image: url('/static/images/test.png');
-}
+main {
+  will-change: transform;
+  @include transition(transform $animation-duration ease);
 
+  // Darken cover when navbar is opened
+  &:after {
+    will-change: opacity;
+    content: '';
+    opacity: 0;
+    background: rgba(#000, .35);
+    @include stretch();
+    @include transition(opacity $animation-duration);
+  }
+}
 
 /*
  * result-fold
@@ -76,7 +110,7 @@ body {
     }
     span {
       // display: block;
-      font-size: $font-size-normal;
+      font-size: $font-size-normal * 2.5;
       @media #{$large-screen} {
         // display: inline;
         margin-right: $margin-sm;
@@ -272,5 +306,34 @@ body {
     @media #{$large-screen} {
       max-width: 100px;
     }
+  }
+}
+
+.main-nav {
+  position: fixed;
+  right: 100%;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  z-index: $zindex-navbar-fixed;
+  will-change: transform;
+  @include transition(transform $animation-duration ease);
+  background: $light-green;
+
+  a {
+    @include link-colors(rgba($main-white, .83), $main-white);
+  }
+
+}
+
+.is-nav-opened {
+  main {
+    @include transform(translate(200px, 0));
+    &:after {
+      opacity: 1;
+    }
+  }
+  .main-nav {
+    @include transform(translate(300px, 0));
   }
 }
