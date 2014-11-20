@@ -9,6 +9,7 @@
   "private": true,
   "ignore": [],
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "fastclick": "~1.0.3"
   }
 }

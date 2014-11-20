@@ -1,19 +1,23 @@
 var $ = require('expose?jQuery!../../vendor/bower_components/jquery/dist/jquery'),
-    constants = require('../../config/constants');
+    constants = require('../../config/constants'),
+    FastClick = require('../../vendor/bower_components/fastclick/lib/fastclick');
 
 require('../../vendor/javascripts/bootstrap');
+FastClick.attach(document.body);
+
+var $body = $('body'),
+    $window = $('window');
 
 // Loads data from API server
 //
 $.getJSON(constants.API_ENDPOINT, {}, function(data){
-  $('.js-total-points').text(data.total_points);
-  $('.js-total-users').text(data.total_users);
+  animateText($('.js-total-points'), data.total_points);
+  animateText($('.js-total-users'), data.total_users);
 });
 
 // Navigation-related interaction
 //
-var $body = $('body'),
-    $deactivatingElements = $('main, .main-nav a'),
+var $deactivatingElements = $('main, .main-nav a'),
     NAV_OPEN_CLS = 'is-nav-opened';
 $('#toggle').click(function(){
   $body.toggleClass(NAV_OPEN_CLS);
