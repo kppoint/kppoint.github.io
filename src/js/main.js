@@ -23,6 +23,17 @@ $('#toggle').click(function(){
   });
 });
 
+// Map activation
+var $mapFold = $('.map-fold'), MAP_ACTIVE_CLS = 'is-map-activated';
+$mapFold.find('.cover').click(function(){
+  window.location.hash = '';
+  window.location.hash = '#map';
+  $mapFold.addClass(MAP_ACTIVE_CLS);
+
+  window.ga('send', 'event', 'map', 'activate', 'booth');
+});
+$mapFold.find('.deactivate-map').click(function(){ $mapFold.removeClass(MAP_ACTIVE_CLS); });
+
 // Loads Youtube video
 //
 window.onYouTubeIframeAPIReady = function(){
@@ -46,3 +57,10 @@ $body.on('activate.bs.scrollspy', function(evt){
   // console.log(targetHash);
   window.ga('send', 'pageview', window.location.pathname + targetHash);
 });
+
+// Generic google analytics click event sender
+//
+$body.on('click', '[ga-label]', function(){
+  var label = $(this).attr('ga-label');
+  window.ga('send', 'event', 'button', 'click', label);
+})
