@@ -20,8 +20,8 @@ html(lang="zh-tw")
       ga('create', 'UA-56923474-1', 'auto');
       ga('send', 'pageview');
 
-  body(data-spy="scroll" target='.main-nav')
-    #toggle
+  body(data-spy="scroll" data-target='.main-nav')
+    #toggle(ga-label='toggle')
       i.fa.fa-bars
     main
       section.result-fold#top
@@ -65,6 +65,13 @@ html(lang="zh-tw")
             | |
             a(href='http://www.genesis.org.tw/') 創世基金會
             |  -
+
+      section.map-fold#map
+        iframe(src="https://mapsengine.google.com/map/u/0/embed?mid=zI3lo4kPc9e4.kuZC0pgWAtNs")
+        div.cover
+          div.toast.activate-map 點一下以啟用地圖
+
+        div.toast.deactivate-map 點一下以離開地圖
 
       section.slogan-fold#motivation
         .main-container
@@ -129,6 +136,7 @@ html(lang="zh-tw")
       ul.nav.nav-stacked.nav-pills
         li.active(role='presentation'): a(href="#top"): h1 挺柯Ｐ，多一點
         li(role='presentation'): a(href="#process") 活動辦法
+        li(role='presentation'): a(href="#map") 攤位地圖
         li(role='presentation'): a(href="#motivation") 動機
         li(role='presentation'): a(href="#about") 我們是誰
 
