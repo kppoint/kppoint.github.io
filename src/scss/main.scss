@@ -512,7 +512,11 @@ main {
 }
 
 .contact-us {
+  @extend %white-color;
   background-color: $main-green;
+  font-family: $font-family-light;
+  -webkit-font-smoothing: antialiased;
+
   .main-container {
     margin: 0 auto;
     padding: $margin-lg $margin-lg * 2;
@@ -525,9 +529,6 @@ main {
     margin-right: 1em;
   }
   a {
-    font-family: $font-family-light;
-    -webkit-font-smoothing: antialiased;
-    @extend %white-color;
-    @include link-colors(rgba($main-white, .83), $main-white);
+    @include link-colors(#fff, $main-white);
   }
 }
