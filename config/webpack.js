@@ -21,7 +21,7 @@ if(process.env.NODE_ENV === 'production'){
   webpackCfg.plugins.push(new webpack.optimize.UglifyJsPlugin({
     sourceMap: false
   }));
-  // webpackCfg.output.path = './assets'; // Bug?
+  webpackCfg.output.path = './assets'; // Bug?
   webpackCfg.output.filename = '[hash].js' // hash filename, cache busting
 }else{
   webpackCfg.debug = true;
