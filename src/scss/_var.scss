@@ -1,12 +1,15 @@
+@import "compass/css3";
+
 $margin-lg: 25px;
 $margin-sm: 15px;
 
 $font-size-lg: 45px;
-$font-size-normal: 18px;
+$font-size-normal: 15px;
+$font-size-heading: 18px;
 
-$font-family-light-title: 'HelveticaNeue-UltraLight', 'Helvetica Neue', Arial, '思源黑體', 'Source Han Sans TC', 'SourceHanSans', 'Noto Sans CJK TC-Thin', 'Kozuka Gothic Pr6N', 'Kozuka Gothic Pro', 'Kozuka Gothic Pr6N', '微軟正黑體', 'Droid Sans', sans-serif;
-$font-family-light: '思源黑體', 'Source Han Sans TC', 'SourceHanSans', 'Noto Sans CJK TC-Thin', 'Kozuka Gothic Pr6N', 'Kozuka Gothic Pro', 'Kozuka Gothic Pr6N', '微軟正黑體', 'Droid Sans', sans-serif;
-$font-family-normal: 'MicrosoftJhengHeiRegular', Arial, sans-serif;
+$font-family-light-title: 'HelveticaNeue-UltraLight', 'Helvetica Neue', Arial, 'Droid Sans', '思源黑體', 'Source Han Sans TC', 'SourceHanSans', 'Noto Sans CJK TC-Thin', 'Kozuka Gothic Pr6N', 'Kozuka Gothic Pro', 'Kozuka Gothic Pr6N', '微軟正黑體', sans-serif;
+$font-family-light: 'Droid Sans', '思源黑體', 'Source Han Sans TC', 'SourceHanSans', 'Noto Sans CJK TC-Thin', 'Kozuka Gothic Pr6N', 'Kozuka Gothic Pro', 'Kozuka Gothic Pr6N', '微軟正黑體', sans-serif;
+$font-family-normal: Helvetica, Arial, 'Droid Sans', 'MicrosoftJhengHeiRegular', '微軟正黑體', sans-serif;
 
 $line-height: 1.5;
 
@@ -27,6 +30,12 @@ $main-nav-width: 250px;
 %text-align {
   text-align: justify; 
   text-justify: ideographic;
+}
+
+%absolute-center {
+  position: absolute;
+  left: 50%; top: 50%;
+  @include translate(-50%, -50%);
 }
 
 @mixin keyframes($animation-name) {

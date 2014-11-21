@@ -37,6 +37,7 @@
 html, body {
   color: rgba(#000, .87);
   overflow-x: hidden;
+  font-family: $font-family-normal;
 }
 
 #toggle {
@@ -107,7 +108,7 @@ main {
   h2 {
     font-family: $font-family-light-title;
     font-weight: 100;
-    font-size: $font-size-normal * 1.5;
+    font-size: $font-size-heading * 1.5;
     line-height: 1.5;
     width: 100%;
     margin: 0;
@@ -117,7 +118,7 @@ main {
     }
     span {
       // display: block;
-      font-size: $font-size-normal * 2.5;
+      font-size: $font-size-heading * 2.5;
       font-weight: bold;
       margin: 0 0.15em;
 
@@ -151,16 +152,15 @@ main {
 
   .indicator {
     $size: 96px;
-    position: absolute;
     width: $size;
     height: $size;
     border-radius: $size;
     font-size: 36px;
     background: $light-green;
     color: $main-white;
-    bottom: $size/-2;
-    left: 50%;
-    margin-left: $size/-2;
+
+    @extend %absolute-center;
+    top: 100%;
     i {
       @include animation(scroll-down-indicator, 0.7s, $count: infinite, $direction:alternate);
     }
@@ -168,8 +168,8 @@ main {
 }
 
 @include keyframes(scroll-down-indicator){
-  from { @include transform(translate(0, 0)); }
-  to { @include transform(translate(0, 10px)); }
+  from { @include translate3d(0, 0); }
+  to { @include translate3d(0, 10px); }
 }
 
 .map-fold {
@@ -179,8 +179,7 @@ main {
   .loading {
     font-size: 100px;
     color: $light-green;
-    position: absolute;
-    top: 50%; left: 50%; @include translate(-50%, -50%);
+    @extend %absolute-center;
   }
 
   iframe {
@@ -289,7 +288,7 @@ main {
       margin-bottom: $margin-lg;
     }
     p {
-      font-size: $font-size-normal;
+      font-size: $font-size-heading;
       margin-bottom: $margin-lg;
     }
     .dots {
@@ -339,13 +338,14 @@ main {
     }
 
     .hidden-gift {
-      font-size: 144px;
+      font-size: 120px;
       color: rgba($main-white, .87);
       // @include text-shadow(0px 5px 10px rgba(255,255,255,0.74), 0px -5px 10px rgba(255,255,255,0.74), 5px 0px 10px rgba(255,255,255,0.74), -5px 0px 10px rgba(255,255,255,0.74));
     }
 
     img {
-      height: 144px;
+      max-height: 120px;
+      max-width: 100%;
       @include border-radius(10px);
       @include box-shadow(0px 5px 10px rgba(255,255,255,0.74), 0px -5px 10px rgba(255,255,255,0.74), 5px 0px 10px rgba(255,255,255,0.74), -5px 0px 10px rgba(255,255,255,0.74));
       @media #{$large-screen} {
@@ -387,18 +387,16 @@ main {
     }
 
     i {
-      position: absolute;
       color: $main-white;
       font-size: 64px;
-      top: 50%; left: 50%;
-      @include translate(-50%, -50%);
+      @extend %absolute-center
     }
   }
   .slogans {
     font-size: 0;
   }
   .slogan {
-    color: $light-green;
+    color: $main-green;
     margin-bottom: $margin-lg * 2;
     &:last-child {
       margin-bottom: 0; 
@@ -417,7 +415,7 @@ main {
     }
     .content {
       @media #{$large-screen} {
-        height: 200px;
+        height: 132px;
       }
     }
     .action-bar {
@@ -437,7 +435,7 @@ main {
     border-bottom: 1px solid $dark-orange;
     color: $dark-orange; // dark orange
     background: #fff;
-
+    font-size: $font-size-heading;
   }
 }
 
@@ -452,6 +450,10 @@ main {
     text-align: center;
     margin: 0 auto;
     max-width: 960px;
+  }
+
+  .lead {
+    font-size: $font-size-heading;
   }
 
   p, h2 {
