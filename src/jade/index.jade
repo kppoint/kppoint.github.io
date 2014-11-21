@@ -31,7 +31,7 @@ html(lang="zh-tw")
             | 人共襄盛舉
           //- .kp-logo
           //-   img(src='/static/images/kp-logo.png')
-        .indicator: i.fa.fa-chevron-down
+        a.indicator(href="#process" data-scroll): i.fa.fa-chevron-down
 
       section.process-fold#process
         .main-container
@@ -168,11 +168,11 @@ html(lang="zh-tw")
 
     nav.main-nav
       ul.nav.nav-stacked.nav-pills
-        li.active(role='presentation'): a(href="#top"): h1 挺柯Ｐ，多一點
-        li(role='presentation'): a(href="#process") 活動辦法
-        li(role='presentation'): a(href="#map") 攤位地圖
-        li(role='presentation'): a(href="#motivation") 動機
-        li(role='presentation'): a(href="#about") 我們是誰
+        li.active(role='presentation'): a(href="#top" data-scroll): h1 挺柯Ｐ，多一點
+        li(role='presentation'): a(href="#process" data-scroll) 活動辦法
+        li(role='presentation'): a(href="#map" data-scroll) 攤位地圖
+        li(role='presentation'): a(href="#motivation" data-scroll) 動機
+        li(role='presentation'): a(href="#about" data-scroll) 我們是誰
 
 
     script(src="/assets/"+hash+".js")

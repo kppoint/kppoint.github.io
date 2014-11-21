@@ -1,6 +1,8 @@
 var $ = require('expose?jQuery!../../vendor/bower_components/jquery/dist/jquery'),
     constants = require('../../config/constants'),
-    FastClick = require('../../vendor/bower_components/fastclick/lib/fastclick');
+    FastClick = require('../../vendor/bower_components/fastclick/lib/fastclick'),
+    smoothScroll = require('expose?smoothScroll!../../vendor/bower_components/smooth-scroll/dist/js/smooth-scroll.min');
+
 
 require('../../vendor/javascripts/bootstrap');
 FastClick.attach(document.body);
@@ -34,8 +36,7 @@ var $mapFold = $('.map-fold'),
     MAP_ACTIVE_CLS = 'is-map-activated';
 
 $mapFold.find('.cover').click(function(){
-  window.location.hash = '';
-  window.location.hash = '#map';
+  smoothScroll.animateScroll(null, '#map');
   $mapFold.addClass(MAP_ACTIVE_CLS);
 
   onESC(deactivateMap);
@@ -110,6 +111,8 @@ $window.on(wheelEvent, function(){
     $body.css({'pointer-events': ''});
   }, SCROLL_TIMEOUT);
 });
+
+smoothScroll.init();
 
 // Utility functions
 //
