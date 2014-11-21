@@ -259,11 +259,11 @@ main {
  */
 
 .process-fold {
-  min-height: 100vh;
   background-color: $light-green;
   text-align: center;
   .main-container {
     @extend %main-container;
+    min-height: 50vh;
   }
   .step {
     font-family: $font-family-normal;
@@ -289,6 +289,14 @@ main {
       font-size: $font-size-lg;
       margin-bottom: $margin-lg - 5px;
       @extend %white-color;
+      @media #{$large-screen} {
+        display: none;
+      }
+    }
+
+    @media #{$large-screen} {
+      width: 33%;
+      float: left;
     }
   }
   .desc {
@@ -302,6 +310,10 @@ main {
       // @media #{$large-screen} {
       //   color: red;
       // }
+
+      a {
+        @include link-colors(#fff, $main-white);
+      }
   }
   .sticker {
     margin-bottom: $margin-lg;
