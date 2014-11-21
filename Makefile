@@ -11,6 +11,7 @@ build: clean
 
 	cp index.html build/index.html
 	cp index.html build/404.html
+	cp favicon.ico build/favicon.ico
 	# cp config/CNAME build/CNAME
 	cp -R assets build/
 	cp -R static build/
