@@ -385,6 +385,9 @@ main {
         height: 200px;
       }
     }
+    .action-bar {
+      margin-top: $margin-lg * 1.5;
+    }
   }
   p {
     @extend %text-align;
