@@ -82,7 +82,7 @@ gulp.task('compass', function(){
       sass: 'src/scss'
     }))
     .pipe(gulp.dest('./assets'))
-    // .on('end', forceReload);
+    .on('end', forceReload);
 });
 
 // Watch file change and invoke corresponding compilers.
