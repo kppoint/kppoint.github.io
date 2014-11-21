@@ -269,6 +269,12 @@ main {
     font-family: $font-family-normal;
     margin-bottom: $margin-lg;
     @extend %white-color;
+
+    @media #{$large-screen} {
+      width: 33%;
+      float: left;
+    }
+
     i {
       width: 128px;
       height: 128px;
@@ -292,11 +298,6 @@ main {
       @media #{$large-screen} {
         display: none;
       }
-    }
-
-    @media #{$large-screen} {
-      width: 33%;
-      float: left;
     }
   }
   .desc {
