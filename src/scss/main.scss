@@ -8,7 +8,7 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
-// REsets
+// Resets
 @import "bootstrap/normalize";
 @import "bootstrap/print";
 
@@ -20,6 +20,7 @@
 @import "bootstrap/component-animations";
 @import "bootstrap/buttons";
 @import "bootstrap/navs";
+@import "bootstrap/labels";
 
 // Utilities
 @import "bootstrap/utilities";
@@ -29,6 +30,7 @@
 @import "compass/css3";
 @import "compass/layout";
 @import "compass/typography";
+@import "compass/utilities";
 
 @import 'var';
 
@@ -117,9 +119,9 @@ main {
       // display: block;
       font-size: $font-size-normal * 2.5;
       font-weight: bold;
+      margin: 0 0.15em;
+
       @media #{$large-screen} {
-        // display: inline;
-        margin-right: $margin-sm;
         font-size: $font-size-lg * 2;
         font-weight: normal;
       }
@@ -316,16 +318,36 @@ main {
         @include link-colors(#fff, $main-white);
       }
   }
-  .sticker {
-    margin-bottom: $margin-lg;
+  .stickers {
+    @include pie-clearfix;
 
     @media #{$large-screen} {
       margin-bottom: $margin-lg + 5px;
     }
+
+    figure {
+      margin: $margin-lg 0;
+      @media #{$large-screen} {
+        width: 33%;
+        float: left;
+      }
+    }
+
+    figcaption {
+      margin-top: $margin-sm;
+      @extend %white-color;
+    }
+
+    .hidden-gift {
+      font-size: 144px;
+      color: rgba($main-white, .87);
+      // @include text-shadow(0px 5px 10px rgba(255,255,255,0.74), 0px -5px 10px rgba(255,255,255,0.74), 5px 0px 10px rgba(255,255,255,0.74), -5px 0px 10px rgba(255,255,255,0.74));
+    }
+
     img {
-      width: 100%;
+      height: 144px;
       @include border-radius(10px);
-      box-shadow: 0px 5px 10px rgba(255,255,255,0.74), 0px -5px 10px rgba(255,255,255,0.74), 5px 0px 10px rgba(255,255,255,0.74), -5px 0px 10px rgba(255,255,255,0.74);
+      @include box-shadow(0px 5px 10px rgba(255,255,255,0.74), 0px -5px 10px rgba(255,255,255,0.74), 5px 0px 10px rgba(255,255,255,0.74), -5px 0px 10px rgba(255,255,255,0.74));
       @media #{$large-screen} {
         width: auto;
       }
