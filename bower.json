@@ -10,6 +10,7 @@
   "ignore": [],
   "dependencies": {
     "jquery": "~2.1.1",
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git",
     "fastclick": "~1.0.3"
   }
 }

@@ -326,7 +326,7 @@ main {
     figure {
       margin: $margin-lg 0;
       @media #{$large-screen} {
-        width: 33%;
+        width: 50%;
         float: left;
       }
     }
