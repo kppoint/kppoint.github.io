@@ -3,11 +3,11 @@ html(lang="zh-tw")
   head
     meta(charset='UTF-8')
     meta(name='viewport',content='width=device-width, initial-scale=1')
-    title 挺柯Ｐ，多一點｜發票投柯Ｐ，給你蓋一Ｐ
+    title 挺柯Ｐ，多一點｜成為柯Ｐ的行動廣告｜KP.Taipei
     link(rel='stylesheet',href='/assets/main.css')
     link(rel='stylesheet',href='/static/css/font-awesome.css')
     link(rel='canonical' href='https://kppoint.github.io')
-    meta(property='og:title' content='挺柯Ｐ，多一點｜發票投柯Ｐ，給你蓋一Ｐ')
+    meta(property='og:title' content='挺柯Ｐ，多一點｜成為柯Ｐ的行動廣告')
     meta(property='og:site_name' content='挺柯Ｐ，多一點')
     meta(property='og:description' content='貼上貼紙，讓自己成為柯Ｐ的行動廣告！')
     meta(property='og:image' content='https://kppoint.github.io/static/images/og.jpg')
@@ -18,19 +18,22 @@ html(lang="zh-tw")
     main
       section.result-fold#top
         .background
-          h1.title
-            img(src='/static/images/title.png' alt='挺柯Ｐ，多一點｜成為柯文哲的行動廣告 KP.Taipei')
-          h2.total-points
-            | 已送出
+          h1.title 挺柯Ｐ，<br>多一點<span>！</span>
+          h2 成為柯文哲的<strong>行動廣告</strong>
+          div.icon
+            img(src='/static/images/icon.png' alt='挺柯Ｐ，多一點')
+
+          p.total-points
+            | 目前挺柯Ｐ多了
             span.js-total-points
               = totalPoints
-            | 貼紙
-          h2.total-users
-            span.js-total-users
-              = totalUsers
-            | 人共襄盛舉
-          //- .kp-logo
-          //-   img(src='/static/images/kp-logo.png')
+            | 點
+
+        video(autoplay loop poster="/static/images/1stfold.jpg")
+          source(src='/static/video/1stfold.mp4' type='video/mp4')
+          source(src='/static/video/1stfold.webm' type='video/webm')
+          img(src='/static/images/1stfold.jpg')
+
         a.indicator(href="#process" data-scroll): i.fa.fa-chevron-down
 
       section.process-fold#process

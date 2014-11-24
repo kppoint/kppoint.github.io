@@ -75,13 +75,11 @@ main {
   text-align: center;
   min-height: 100vh;
   height: 1px;
-  background-image: url('/static/images/bg.jpg');
-  background-size: cover;
-  background-position: 50%;
+
   .background {
     height: 100%;
     width: 100%;
-    background-color: rgba(255,255,255,0.5);
+    // background-color: rgba(255,255,255,0.5);
 
     // Just for vertical centering on mobile (100% support)
     // It should look the same on desktop.
@@ -90,25 +88,24 @@ main {
     @include flex-direction(column);
     @include justify-content(center);
   }
-  .title{
-    text-align: center;
-    margin: 0;
-  }
 
-  .title > img{
-    width: 100%;
-
-    @media #{$large-screen}, screen and (orientation: landscape) {
-      // On horizontal screns, limit logo's height instead
-      width: auto;
-      max-height: 50vh;
+  .title {
+    color: $main-green;
+    font-family: $font-family-light-title;
+    font-weight: 500;
+    font-size: $font-size-lg;
+    @media #{$large-screen} {
+      font-size: $font-size-lg * 2;
+      br, span {
+        display: none;
+      }
     }
   }
 
   h2 {
     font-family: $font-family-light-title;
     font-weight: 100;
-    font-size: $font-size-heading * 1.5;
+    font-size: $font-size-heading;
     line-height: 1.5;
     width: 100%;
     margin: 0;
@@ -116,51 +113,46 @@ main {
     @media #{$large-screen} {
       font-size: $font-size-lg;
     }
+  }
+  .icon{
+    margin: $font-size-normal * $line-height 0;
+  }
+  .total-points {
+    font-weight: 100;
+
+    @media #{$large-screen} {
+      font-size: $font-size-heading * 1.5;
+    }
+
     span {
       // display: block;
-      font-size: $font-size-heading * 2.5;
-      font-weight: bold;
+      font-size: 1.6em;
+      // font-weight: 400;
       margin: 0 0.15em;
 
       @media #{$large-screen} {
-        font-size: $font-size-lg * 2;
-        font-weight: normal;
+        font-weight: 100;
       }
     }
-    // &:first-child {
-    //   padding-top: $margin-lg * 4;
-    //   margin-bottom: $margin-lg * 2;
-    //   @media #{$large-screen} {
-    //     margin-bottom: 0;
-    //   }
-    // }
   }
-  // .kp-logo {
-  //   display: block;
-  //   position: absolute;
-  //   bottom: $margin-lg * 8;
-  //   padding: 0 50px;
-  //   @media #{$large-screen} {
-  //     padding: 0;
-  //     margin-left: image-width('kp-logo.png')/-2;
-  //     left: 50%;
-  //   }
-  //   img {
-  //     width: 100%;
-  //   }
-  // }
+  video {
+    @extend %absolute-center;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  }
 
   .indicator {
     $size: 96px;
     width: $size;
     height: $size;
-    border-radius: $size;
     font-size: 36px;
-    background: $light-green;
-    color: $main-white;
+    color: $light-green;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    @include translate(-50%, 0);
 
-    @extend %absolute-center;
-    top: 100%;
     i {
       @include animation(scroll-down-indicator, 0.7s, $count: infinite, $direction:alternate);
     }
