@@ -281,6 +281,11 @@ main {
     p {
       font-size: $font-size-heading;
       margin-bottom: $margin-lg;
+      small {
+        font-size: 60%;
+        opacity: 0.8;
+        font-weight: 100;
+      }
     }
     .dots {
       margin: 0 auto;

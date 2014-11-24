@@ -40,19 +40,23 @@ html(lang="zh-tw")
         .main-container
           .steps
             .step
-              i.fa.fa-users
-              p 1. 在路上發現攤位
-              .dots: .fa.fa-ellipsis-v
-            .step
-              i.fa.fa-thumbs-o-up
-              p 2. 貼上貼紙！
+              i.fa.fa-paste
+              p 1. 領取並貼上貼紙！
               .dots: .fa.fa-ellipsis-v
             .step
               img(src='/static/images/collectpoint.svg')
-              p 3. 蓋章線上集氣
+              p
+                | 2. 蓋章線上集氣 
+                small （可不做）
+              .dots: .fa.fa-ellipsis-v
+            .step
+              img(src='/static/images/box.png')
+              p
+                | 3. 發票投柯Ｐ 
+                small （可不做）
           .desc
             p
-              | 在 11/28 前，在我們攤位領取貼紙，並且用手機號碼登入集點系統、發票投入我們的「投票箱」，一起成為柯Ｐ的行動廣告吧！募得的發票將會捐贈至「
+              | 在 11/28（含）前，在特約商家領取貼紙，一起成為柯Ｐ的行動廣告吧！另外，還可以手機號碼登入集點系統、並且發票投入我們的「投票箱」，即使沒有投票權的人也能<small>發</small>票投柯Ｐ喲！募得的發票將會捐贈至「
               a(href='http://www.tfrd.org.tw/') 罕見疾病基金會
               | 」、「
               a(href='http://www.genesis.org.tw/') 創世基金會
@@ -62,19 +66,16 @@ html(lang="zh-tw")
           .stickers
             figure
               img(src='/static/images/sticker.png')
-              figcaption
-                span.label.label-default 即日起
-                |  支持貼紙
+              figcaption 生活在臺北貼紙
             figure
               img(src='/static/images/sticker2.png')
-              figcaption
-                span.label.label-default 11/24 起
-                |  7 號按鈕貼
+              figcaption 7 號按鈕貼
 
           .donate
             | 攤位時間：11/25 至 11/28 為 18:00～22:00。發票需為 8 月以後、未打統編的有效發票。歡迎到 
-            a(href="http://clbc.tw/theflagship/") CLBC The flagship 大船艦
-            |  領取貼紙！
+            a(href="#map" data-scroll) 特約商家
+            |  領取貼紙！<br>
+            | ※ 請不要將貼紙貼在公共財上。11/29 投票時，也請注意貼紙無法進入投票所喲！ ※
 
       section.map-fold#map
         i.fa.fa-map-marker.loading
